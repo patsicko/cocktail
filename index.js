@@ -1,11 +1,36 @@
-const search = document.getElementById("search");
+const search1 = document.getElementById("search1");
+const search2 = document.getElementById("search2");
 const btn = document.getElementById("btn");
 const cardHolder=document.getElementById("cardHolder");
 
-btn.addEventListener("click", (e) => {
-  console.log(search.value);
-});
 
+ const data=[
+    {
+        name:"lemon",
+        url:"images/mojito.jpg"
+    },
+    {
+        name:"orange",
+        url:"images/orange.jpg"
+    },
+    {
+        name:"apple",
+        url:"images/apple.jpg"
+    },
+    {
+        name:"pinapple",
+        url:"images/pinapple.jpg"
+    },
+    {
+        name:"cocktail",
+        url:"images/cocktail.jpg"
+    },
+    {
+        name:"Soya milk",
+        url:"images/Soya.png"
+    }
+
+]
 
 
 
@@ -28,35 +53,6 @@ cardHolder.innerHTML+=card;
 document.addEventListener("DOMContentLoaded",e=>{
 
 
-    const data=[
-        {
-            name:"orange",
-            url:"images/mojito.jpg"
-        },
-        {
-            name:"orange",
-            url:"images/mojito.jpg"
-        },
-        {
-            name:"orange",
-            url:"images/mojito.jpg"
-        },
-        {
-            name:"orange",
-            url:"images/mojito.jpg"
-        },
-        {
-            name:"orange",
-            url:"images/mojito.jpg"
-        },
-        {
-            name:"orange",
-            url:"images/mojito.jpg"
-        }
-
-    ]
-
-
     data.map(item=>{
         console.log(item);
 
@@ -71,4 +67,36 @@ document.addEventListener("DOMContentLoaded",e=>{
 })
 
 
+  
+  const search=(value)=>{
+  
+      const filtering=data.filter(item=>item.name.includes(value))
+      cardHolder.innerHTML="";
+      filtering.map(item=>{
+      
+          mapData(item.name,item.url)
+      })  
+  }
+  
+  
 
+  search1.addEventListener("keyup",e=>{
+  
+    search(search1.value) 
+  })
+  
+
+  btn.addEventListener("click", (e) => {
+    
+ search(search2.value)
+  
+});
+
+ search2.addEventListener("keydown",e=>{
+
+    console.log(e);
+    if(e.keyCode==13){
+        search(search2.value) 
+    }
+    
+ }) 
