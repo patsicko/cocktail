@@ -6,6 +6,9 @@ btn.addEventListener("click", (e) => {
   console.log(search.value);
 });
 
+
+
+
 const mapData = (label,image) => {
 
   const card = `<div class="card">
@@ -17,17 +20,54 @@ const mapData = (label,image) => {
 
 
 cardHolder.innerHTML+=card;
-
               
 };
 
+
+
 document.addEventListener("DOMContentLoaded",e=>{
-    mapData(`orange`,`images/mojito.jpg`);
-    mapData(`Mango`,`images/mojito.jpg`);
-    mapData(`apple`,`images/mojito.jpg`);
-    mapData(`lemon`,`images/mojito.jpg`);
-    mapData(`strawberry`,`images/mojito.jpg`);
-    mapData(`pinapple`,`images/mojito.jpg`);
+
+
+    const data=[
+        {
+            name:"orange",
+            url:"images/mojito.jpg"
+        },
+        {
+            name:"orange",
+            url:"images/mojito.jpg"
+        },
+        {
+            name:"orange",
+            url:"images/mojito.jpg"
+        },
+        {
+            name:"orange",
+            url:"images/mojito.jpg"
+        },
+        {
+            name:"orange",
+            url:"images/mojito.jpg"
+        },
+        {
+            name:"orange",
+            url:"images/mojito.jpg"
+        }
+
+    ]
+
+
+    data.map(item=>{
+        console.log(item);
+
+        mapData(item.name,item.url)
+
+        
+     });
+     
+
+  
+
 })
 
 
